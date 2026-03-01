@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — Sidepad</title>
+  <meta name="description" content="Terms of Use for Sidepad, the Chrome extension for capturing and composing structured Markdown documents.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/output.css">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* Sticky header backdrop */
+    .header-blur {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-surface text-foreground antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header-blur sticky top-0 z-50 bg-surface/95 border-b border-border-color">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo + Name -->
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="assets/logo.png" alt="Sidepad logo" class="h-8 w-8 rounded-md transition-transform duration-300 group-hover:scale-105">
+        <span class="text-primary font-semibold text-lg tracking-tight">Sidepad</span>
+      </a>
+
+      <!-- Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm text-foreground-secondary hover:text-primary transition-colors duration-200">Features</a>
+        <a href="privacy.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors duration-200">Privacy</a>
+        <a href="terms.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors duration-200">Terms</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="#" class="inline-flex items-center gap-2 bg-cta text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-cta-hover transition-all duration-200 hover:shadow-md">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+        Add to Chrome
+      </a>
+    </div>
+
+    <!-- Mobile nav (simple) -->
+    <div class="md:hidden border-t border-border-color px-6 py-3 flex gap-6">
+      <a href="#features" class="text-sm text-foreground-secondary hover:text-primary transition-colors">Features</a>
+      <a href="privacy.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors">Privacy</a>
+      <a href="terms.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors">Terms</a>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="max-w-3xl mx-auto px-6 py-16 md:py-20">
+    <h1 class="text-primary font-bold text-3xl md:text-4xl tracking-tight">Terms of Use</h1>
+    <p class="text-foreground-tertiary text-sm mt-2">Effective: March 1, 2026</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">1. Acceptance of Terms</h2>
+    <p class="text-foreground-secondary leading-relaxed">By installing or using Sidepad, you agree to these terms. If you do not agree, please uninstall the extension.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">2. Description of Service</h2>
+    <p class="text-foreground-secondary leading-relaxed">Sidepad is a Chrome extension that allows you to capture text from web pages and organize it into structured Markdown documents saved locally on your device.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">3. Use of the Extension</h2>
+    <p class="text-foreground-secondary leading-relaxed">You may use Sidepad for any lawful purpose. You are responsible for all content you capture and create using the extension.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">4. Intellectual Property</h2>
+    <p class="text-foreground-secondary leading-relaxed">Sidepad and its original content, features, and functionality are owned by Sidepad. The text you capture and documents you create belong to you.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">5. No Warranty</h2>
+    <p class="text-foreground-secondary leading-relaxed">Sidepad is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that the extension will be uninterrupted, error-free, or free of harmful components.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">6. Limitation of Liability</h2>
+    <p class="text-foreground-secondary leading-relaxed">To the fullest extent permitted by law, Sidepad shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the extension.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">7. Changes to Terms</h2>
+    <p class="text-foreground-secondary leading-relaxed">We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated effective date. Continued use of the extension constitutes acceptance of the updated terms.</p>
+
+    <h2 class="text-primary font-semibold text-xl mt-10 mb-4">8. Contact</h2>
+    <p class="text-foreground-secondary leading-relaxed">If you have questions about these terms, contact us at <a href="mailto:support@sidepad.app" class="text-accent hover:underline">support@sidepad.app</a>.</p>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-primary">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Left: Logo + tagline -->
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/logo.png" alt="Sidepad" class="h-7 w-7 rounded brightness-200">
+            <span class="text-white font-semibold text-base">Sidepad</span>
+          </div>
+          <p class="text-white/60 text-sm">Built for researchers, writers, and thinkers.</p>
+        </div>
+
+        <!-- Center: Links -->
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
+          <span class="text-white/30">&middot;</span>
+          <a href="terms.html" class="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Use</a>
+        </div>
+
+        <!-- Right: Copyright -->
+        <p class="text-white/50 text-sm">&copy; 2026 Sidepad. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
