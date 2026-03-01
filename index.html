@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidepad — Capture and compose from anywhere on the web</title>
+  <meta name="description" content="Your companion for AI conversations. Capture responses from ChatGPT, Claude, and other AI tools into structured Markdown documents — saved locally, never uploaded.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/output.css">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* Staggered fade-in on load */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.7s ease-out forwards;
+    }
+
+    .animate-delay-1 { animation-delay: 0.1s; }
+    .animate-delay-2 { animation-delay: 0.2s; }
+    .animate-delay-3 { animation-delay: 0.35s; }
+    .animate-delay-4 { animation-delay: 0.5s; }
+
+    /* Screenshot float */
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .screenshot-float {
+      animation: subtleFloat 6s ease-in-out infinite;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Sticky header backdrop */
+    .header-blur {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-surface text-foreground antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header-blur sticky top-0 z-50 bg-surface/95 border-b border-border-color">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo + Name -->
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="assets/logo.png" alt="Sidepad logo" class="h-8 w-8 rounded-md transition-transform duration-300 group-hover:scale-105">
+        <span class="text-primary font-semibold text-lg tracking-tight">Sidepad</span>
+      </a>
+
+      <!-- Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm text-foreground-secondary hover:text-primary transition-colors duration-200">Features</a>
+        <a href="privacy.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors duration-200">Privacy</a>
+        <a href="terms.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors duration-200">Terms</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="#" class="inline-flex items-center gap-2 bg-cta text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-cta-hover transition-all duration-200 hover:shadow-md">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+        Add to Chrome
+      </a>
+    </div>
+
+    <!-- Mobile nav (simple) -->
+    <div class="md:hidden border-t border-border-color px-6 py-3 flex gap-6">
+      <a href="#features" class="text-sm text-foreground-secondary hover:text-primary transition-colors">Features</a>
+      <a href="privacy.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors">Privacy</a>
+      <a href="terms.html" class="text-sm text-foreground-secondary hover:text-primary transition-colors">Terms</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="bg-hero-bg overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Copy -->
+        <div class="max-w-xl">
+          <h1 class="animate-fade-up animate-delay-1 text-primary text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+            Capture and compose from anywhere on&nbsp;the&nbsp;web
+          </h1>
+          <p class="animate-fade-up animate-delay-2 mt-6 text-foreground-secondary text-lg leading-relaxed">
+            Your companion for AI conversations. Capture responses from ChatGPT, Claude, and other AI tools into structured Markdown documents&thinsp;&mdash;&thinsp;saved locally, never uploaded.
+          </p>
+          <div class="animate-fade-up animate-delay-3 mt-8 flex flex-wrap items-center gap-4">
+            <a href="#" class="inline-flex items-center gap-2.5 bg-cta text-white font-medium px-7 py-3.5 rounded-lg hover:bg-cta-hover transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+              <!-- Chrome icon -->
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+              </svg>
+              Add to Chrome
+            </a>
+            <span class="text-foreground-tertiary text-sm">Free &middot; No account required</span>
+          </div>
+        </div>
+
+        <!-- Right: Screenshot -->
+        <div class="animate-fade-up animate-delay-4 relative flex justify-center lg:justify-end">
+          <!-- Decorative background shape -->
+          <div class="absolute -inset-4 bg-gradient-to-br from-border-color/40 to-transparent rounded-3xl blur-2xl"></div>
+          <!-- Screenshot container -->
+          <div class="screenshot-float relative">
+            <div class="relative bg-white rounded-2xl shadow-2xl shadow-primary/10 ring-1 ring-border-color overflow-hidden max-w-sm">
+              <img
+                src="assets/screenshot.png"
+                alt="Sidepad side panel showing a document with captured text, headings, and notes"
+                class="w-full h-auto"
+                loading="eager"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="bg-surface scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-primary text-3xl md:text-4xl font-bold tracking-tight">Everything you need to capture knowledge</h2>
+        <p class="mt-4 text-foreground-secondary text-lg">A focused set of tools designed for one thing: getting useful text out of the browser and into your files.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- Feature 1 -->
+        <div class="group relative bg-surface-subtle rounded-xl p-7 border border-transparent hover:border-border-color transition-all duration-300 hover:shadow-sm">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-white border border-border-color flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5 text-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h6v6"/>
+                <path d="M10 14 21 3"/>
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-primary font-semibold text-base">Capture from any page</h3>
+              <p class="mt-1.5 text-foreground-secondary text-sm leading-relaxed">Highlight text on any webpage, then press <kbd class="inline-block px-1.5 py-0.5 bg-white border border-border-color rounded text-xs font-medium text-foreground-secondary">&#8984;+Shift+S</kbd> or right-click to send it to Sidepad. Works everywhere.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="group relative bg-surface-subtle rounded-xl p-7 border border-transparent hover:border-border-color transition-all duration-300 hover:shadow-sm">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-white border border-border-color flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5 text-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="8" y1="13" x2="16" y2="13"/>
+                <line x1="8" y1="17" x2="16" y2="17"/>
+                <line x1="8" y1="9" x2="10" y2="9"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-primary font-semibold text-base">Structured Markdown</h3>
+              <p class="mt-1.5 text-foreground-secondary text-sm leading-relaxed">Organize captures with headings, notes, and annotations. Every snippet links back to its source.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="group relative bg-surface-subtle rounded-xl p-7 border border-transparent hover:border-border-color transition-all duration-300 hover:shadow-sm">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-white border border-border-color flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5 text-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-primary font-semibold text-base">Local-first storage</h3>
+              <p class="mt-1.5 text-foreground-secondary text-sm leading-relaxed">Your documents are saved as <code class="px-1 py-0.5 bg-white border border-border-color rounded text-xs">.md</code> files on your computer. No cloud, no account, no sign-up required.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="group relative bg-surface-subtle rounded-xl p-7 border border-transparent hover:border-border-color transition-all duration-300 hover:shadow-sm">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-white border border-border-color flex items-center justify-center shadow-sm">
+              <svg class="w-5 h-5 text-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a4 4 0 0 0-4 4c0 2 1.5 3.5 4 5.5 2.5-2 4-3.5 4-5.5a4 4 0 0 0-4-4z"/>
+                <path d="M8.5 14.5A7 7 0 0 0 5 21h14a7 7 0 0 0-3.5-6.5"/>
+                <circle cx="12" cy="6" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-primary font-semibold text-base">Built for AI workflows</h3>
+              <p class="mt-1.5 text-foreground-secondary text-sm leading-relaxed">Designed for capturing from ChatGPT, Claude, Gemini, and other AI conversations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="bg-hero-bg">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-primary text-3xl md:text-4xl font-bold tracking-tight">Three steps. That&rsquo;s it.</h2>
+        <p class="mt-4 text-foreground-secondary text-lg">No setup wizards, no onboarding flows. Just a keyboard shortcut and a side panel.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative bg-white rounded-xl p-7 border border-border-color shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-bg text-accent font-bold text-sm">1</span>
+            <h3 class="text-primary font-semibold text-lg">Capture</h3>
+          </div>
+          <p class="text-foreground-secondary text-sm leading-relaxed">Highlight text and send to Sidepad with a keyboard shortcut or the right-click menu.</p>
+        </div>
+
+        <!-- Connector (desktop only) -->
+        <!-- Step 2 -->
+        <div class="relative bg-white rounded-xl p-7 border border-border-color shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-bg text-accent font-bold text-sm">2</span>
+            <h3 class="text-primary font-semibold text-lg">Organize</h3>
+          </div>
+          <p class="text-foreground-secondary text-sm leading-relaxed">Add headings, notes, and annotations to structure your document exactly how you want.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-white rounded-xl p-7 border border-border-color shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-bg text-accent font-bold text-sm">3</span>
+            <h3 class="text-primary font-semibold text-lg">Save</h3>
+          </div>
+          <p class="text-foreground-secondary text-sm leading-relaxed">Export as Markdown files to any folder on your computer. Your files, your storage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-primary">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Left: Logo + tagline -->
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/logo.png" alt="Sidepad" class="h-7 w-7 rounded brightness-200">
+            <span class="text-white font-semibold text-base">Sidepad</span>
+          </div>
+          <p class="text-white/60 text-sm">Built for researchers, writers, and thinkers.</p>
+        </div>
+
+        <!-- Center: Links -->
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
+          <span class="text-white/30">&middot;</span>
+          <a href="terms.html" class="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Use</a>
+        </div>
+
+        <!-- Right: Copyright -->
+        <p class="text-white/50 text-sm">&copy; 2026 Sidepad. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
